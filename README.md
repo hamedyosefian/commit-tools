@@ -1,4 +1,4 @@
-# Codex Commit Message
+# Codex Commit
 
 This VS Code extension adds **Codex: Generate Commit Message** to the Git Source Control title bar.
 
@@ -21,14 +21,14 @@ The Marketplace-compatible build places the sparkle action in the Source Control
 For local development with VS Code Insiders, you can enable that menu by adding `enabledApiProposals` and the `scm/inputBox` contribution from the development branch, then launch:
 
 ```sh
-code-insiders --enable-proposed-api hamedyosefian.codex-commit-message .
+code-insiders --enable-proposed-api hamedyosefian.codex-commit .
 ```
 
 The stable Marketplace build keeps the title-bar fallback and the Command Palette command.
 
-The default command is the Codex bundled inside `/Applications/ChatGPT.app`, so the extension can use the same signed-in Codex installation as the ChatGPT macOS app. You can override it with `codexCommitMessage.commandPath`.
+The default command is the Codex bundled inside `/Applications/ChatGPT.app`, so the extension can use the same signed-in Codex installation as the ChatGPT macOS app. You can override it with `codexCommit.commandPath`.
 
-Settings include `codexCommitMessage.model`, `codexCommitMessage.reasoningEffort`, and `codexCommitMessage.prompt`. Defaults are `gpt-6-astra`, `low`, and a short reviewer-focused instruction. The staged-only and one-line output rules remain enforced by the extension.
+Settings include `codexCommit.model`, `codexCommit.reasoningEffort`, and `codexCommit.prompt`. Defaults are `gpt-6-astra`, `low`, and a short reviewer-focused instruction. The staged-only and one-line output rules remain enforced by the extension.
 
 ## Publish to the Visual Studio Marketplace
 

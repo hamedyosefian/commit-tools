@@ -4,7 +4,7 @@ const os = require('os');
 const path = require('path');
 const { spawn } = require('child_process');
 
-const COMMAND_ID = 'codexCommitMessage.generate';
+const COMMAND_ID = 'codexCommit.generate';
 const DEFAULT_PROMPT = 'Describe the staged changes accurately and choose the most useful commit subject for a reviewer.';
 
 function resolveCodexCommand(configuredCommand) {
@@ -61,7 +61,7 @@ function buildPrompt(config) {
 }
 
 function runCodex(command, model, reasoningEffort, repositoryRoot, prompt) {
-  const outputFile = path.join(os.tmpdir(), `codex-commit-message-${process.pid}-${Date.now()}.txt`);
+  const outputFile = path.join(os.tmpdir(), `codex-commit-${process.pid}-${Date.now()}.txt`);
   const args = [
     'exec',
     ...(model ? ['--model', model] : []),
@@ -121,7 +121,7 @@ async function generateCommitMessage() {
   const git = await getGitApi();
   const repository = chooseRepository(git.repositories);
   if (!repository) {
-    vscode.window.showErrorMessage('Codex Commit Message: no Git repository is open.');
+    vscode.window.showErrorMessage('Codex Commit: no Git repository is open.');
     return;
   }
   if (!repository.state.indexChanges.length) {
@@ -129,7 +129,7 @@ async function generateCommitMessage() {
     return;
   }
 
-  const config = vscode.workspace.getConfiguration('codexCommitMessage');
+  const config = vscode.workspace.getConfiguration('codexCommit');
   const command = resolveCodexCommand(config.get('commandPath', ''));
   const model = config.get('model', 'gpt-6-astra');
   const reasoningEffort = config.get('reasoningEffort', 'low');
@@ -150,7 +150,7 @@ async function generateCommitMessage() {
         vscode.window.showInformationMessage('Commit message generated from staged changes.');
       } catch (error) {
         const detail = error && error.message ? error.message : String(error);
-        vscode.window.showErrorMessage(`Codex Commit Message failed: ${detail}`);
+        vscode.window.showErrorMessage(`Codex Commit failed: ${detail}`);
       }
     }
   );

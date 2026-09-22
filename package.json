@@ -1,6 +1,6 @@
 {
-  "name": "codex-commit-message",
-  "displayName": "Codex Commit Message",
+  "name": "codex-commit",
+  "displayName": "Codex Commit",
   "description": "Generate a commit message from staged Git changes with Codex.",
   "version": "0.1.0",
   "publisher": "hamedyosefian",
@@ -18,7 +18,7 @@
   ],
   "main": "./extension.js",
   "activationEvents": [
-    "onCommand:codexCommitMessage.generate"
+    "onCommand:codexCommit.generate"
   ],
   "extensionDependencies": [
     "vscode.git"
@@ -26,7 +26,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "codexCommitMessage.generate",
+        "command": "codexCommit.generate",
         "title": "Codex: Generate Commit Message",
         "icon": "$(sparkle)"
       }
@@ -34,21 +34,21 @@
     "menus": {
       "scm/title": [
         {
-          "command": "codexCommitMessage.generate",
+          "command": "codexCommit.generate",
           "when": "scmProvider == git",
           "group": "navigation@1"
         }
       ]
     },
     "configuration": {
-      "title": "Codex Commit Message",
+      "title": "Codex Commit",
       "properties": {
-        "codexCommitMessage.commandPath": {
+        "codexCommit.commandPath": {
           "type": "string",
           "default": "",
           "description": "Optional path to the Codex CLI executable. Leave empty to use the Codex bundled with ChatGPT.app, then PATH."
         },
-        "codexCommitMessage.language": {
+        "codexCommit.language": {
           "type": "string",
           "enum": [
             "English",
@@ -57,17 +57,17 @@
           "default": "English",
           "description": "Language for the generated commit subject."
         },
-        "codexCommitMessage.conventional": {
+        "codexCommit.conventional": {
           "type": "boolean",
           "default": true,
           "description": "Ask Codex to use the Conventional Commits format."
         },
-        "codexCommitMessage.model": {
+        "codexCommit.model": {
           "type": "string",
           "default": "gpt-6-astra",
           "description": "Codex model to use. The default Astra model is fast for this short task."
         },
-        "codexCommitMessage.reasoningEffort": {
+        "codexCommit.reasoningEffort": {
           "type": "string",
           "enum": [
             "low",
@@ -79,7 +79,7 @@
           "default": "low",
           "description": "Reasoning effort passed to Codex. Low is recommended for short commit messages."
         },
-        "codexCommitMessage.prompt": {
+        "codexCommit.prompt": {
           "type": "string",
           "default": "Describe the staged changes accurately and choose the most useful commit subject for a reviewer.",
           "description": "Additional instructions for the commit-message generator. The staged-only and one-line output rules are always enforced."
