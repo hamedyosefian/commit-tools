@@ -1,6 +1,6 @@
 {
-  "name": "codex-commit",
-  "displayName": "Codex Commit",
+  "name": "commit-tools",
+  "displayName": "Commit Tools",
   "description": "Generate a commit message from staged Git changes with Codex.",
   "version": "0.1.0",
   "publisher": "hamedyosefian",
@@ -8,7 +8,7 @@
   "icon": "./icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hamedyosefian/codex-commit.git"
+    "url": "https://github.com/hamedyosefian/commit-tools.git"
   },
   "engines": {
     "vscode": ">=1.90.0"

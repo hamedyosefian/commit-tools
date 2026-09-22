@@ -61,7 +61,7 @@ function buildPrompt(config) {
 }
 
 function runCodex(command, model, reasoningEffort, repositoryRoot, prompt) {
-  const outputFile = path.join(os.tmpdir(), `codex-commit-${process.pid}-${Date.now()}.txt`);
+  const outputFile = path.join(os.tmpdir(), `commit-tools-${process.pid}-${Date.now()}.txt`);
   const args = [
     'exec',
     ...(model ? ['--model', model] : []),

@@ -1,4 +1,4 @@
-# Codex Commit
+# Commit Tools
 
 This VS Code extension adds **Codex: Generate Commit Message** to the Git Source Control title bar.
 
@@ -21,7 +21,7 @@ The Marketplace-compatible build places the sparkle action in the Source Control
 For local development with VS Code Insiders, you can enable that menu by adding `enabledApiProposals` and the `scm/inputBox` contribution from the development branch, then launch:
 
 ```sh
-code-insiders --enable-proposed-api hamedyosefian.codex-commit .
+code-insiders --enable-proposed-api hamedyosefian.commit-tools .
 ```
 
 The stable Marketplace build keeps the title-bar fallback and the Command Palette command.
