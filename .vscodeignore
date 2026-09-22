@@ -1,0 +1,7 @@
+.git/
+.github/
+.vscode/
+*.vsix
+vsix/
+README.md
+CHANGELOG.md
